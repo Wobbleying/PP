@@ -1,0 +1,472 @@
+import pandas as pd
+import webbrowser
+from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter
+excy = r'C:\Users\Random User Friendly\Desktop\place all here\to be deleted\To be deleted\CC2\Santos_Robby - mock_data.xlsx'
+excely = load_workbook(excy, data_only=True)
+exci = excely['Sheet1']
+excii = excely.active
+starting = True
+go_carting = False
+GPUting = False
+
+GPU1ing = False
+GPU1ting = False
+GPU1_2ting = False
+
+GPU2ing = False
+GPU2ting = False
+GPU2_2ting = False
+
+GPU3ing = False
+GPU3ting = False
+GPU3_2ting = False
+
+
+
+class main:
+    def __init__(self):
+        self.beginn = None
+        self.char_a = 'A'
+        self.char_b = 'B'
+        self.char_c = 'C'
+        self.char_d = 'D'
+        self.char_e = 'E'
+        self.char_f = 'F'
+        self.char_j = 'J'
+        self.char_k = 'K'
+        self.char_l = 'L'
+        self.char_n = 'N'
+
+        self.char_a_combine = None
+        self.char_b_combine = None
+        self.char_c_combine = None
+        self.char_d_combine = None
+        self.char_e_combine = None
+        self.char_f_combine = None
+        self.char_j_combine = None
+        self.char_k_combine = None
+        self.char_l_combine = None
+        self.char_n_combine = None
+
+        self.back_gput = None
+        self.after_cart1 = None
+        self.after_cart2 = None
+        self.after_cart3 = None
+
+    def start(self):
+        while True:
+            try:
+                self.beginn = False
+
+                print("»»————-　Welcome! ٩(◕‿◕)۶　————-«« \n")
+                print("PLEASE PRESS 4 TO START PERUSING FOR GPUS, PRESS 8 TO GO DOUBLE CHECK YOUR ITEMS, OR 0 TO EXIT")
+                print("4. GPU -", excii['M5'].value,"\n8. GO TO CART \n0. EXIT PROGRAM")
+                self.asking = int(input(":"))
+
+                if self.asking == 4 or self.asking == 8 or self.asking ==0:
+                    break
+                else:
+                    print("凸(⊙▂⊙✖ )_凸(⊙▂⊙✖ )")
+                    continue
+
+
+            except ValueError:
+                print("(っ＾▿＾)💨 (っ＾▿＾)💨 \n")
+
+
+    def GPUt(self):
+        while True:
+            try:
+                print("PLEASE CHOOSE WHAT TYPE OF PC YOU'D LIKE TO BUY:")
+                self.asking_gpu = int(input("1.Non-Gaming / Office \n2.Low-Tier \n3.Mid-High tier \n4.Go back \n:"))
+                return self.asking_gpu
+                break
+            except ValueError:
+                print("FOR THE LOVE OF GOD... ᕙ(⇀‸↼‶)ᕗ\n")
+
+    def add_to_cart(self, add_m):
+        exci.cell(5,13).value = add_m
+        excely.save(excy)
+        excely.close()
+        print("Successfully added to cart!", excii['M5'].value)
+        input("Press any key to continue \n:")
+
+    def GPU1(self):
+        while True:
+            try:
+                self.yes = pd.read_excel(r"C:\Users\Random User Friendly\Desktop\place all here\to be deleted\To be deleted\CC2\Santos_Robby - mock_data.xlsx", usecols='A,B')
+
+                print(self.yes,"\n")
+                print("(づ ◕‿◕ )づ__ (づ ◕‿◕ )づ__ (づ ◕‿◕ )づ__")
+                print("NOTE: ALL GPUs ARE ARRANGED FROM LEAST POWERFUL TO MOST POWERFUL")
+                print("_PRESS 1 TO ADD A GPU TO CART, AND PRESS 2 TO FIND OUT MORE ABOUT THE GPUs!_ \n")
+                self.asking_decide = int(input("1. ADD A GPU TO CART  \n2. SEE THE INFORMATION OF EACH GPUs (YOU WILL BE REDIRECTED TO A YOUTUBE VIDEO WITH THE INFO OF THE GPU) \n3. GO BACK \n:"))
+                return self.asking_decide
+            except ValueError:
+                print("MIGHT I INTRODUCE YOU TO PAPA J?\n")
+
+    def GPU1t(self):
+        while True:
+            self.back_gput = False
+            try:
+
+                if self.asking_decide == 2:
+                    print("SCROLL UP TO SEE THE LIST OF GPUs!")
+                    self.asking_gpuinfo = int(input("TO KNOW MORE ABOUT THE GPUs, PLEASE INPUT THE CORRESPONDING NUMBER TO THE RESPECTIVE GPUs!\n-TO GO BACK TO GPU TYPE, INPUT 100- \n:"))
+                    self.char_a_combine = self.char_a + str(self.asking_gpuinfo + 2)
+                    self.char_j_combine = self.char_j + str(self.asking_gpuinfo +2)
+
+                    if self.asking_gpuinfo < 0 or self.asking_gpuinfo >49 and self.asking_gpuinfo <100 or self.asking_gpuinfo > 49 and self.asking_gpuinfo >100:
+                        print("ᕙ(⇀‸↼‶)ᕗ 凸(⊙▂⊙✖ )")
+                        continue
+
+                    if self.asking_gpuinfo != 100:
+                        webbrowser.open(str(excii[self.char_j_combine].value))
+                        print("You are currently watching information on", excii[self.char_a_combine].value)
+                        input("Press any key to continue \n")
+                    else:
+                        self.back_gput = True
+                        break
+
+            except ValueError:
+                print("----ERROR--- ᕙ(⇀‸↼‶)ᕗ")
+                print("MIGHT I INTRODUCE YOU TO PAPA J?\n")
+
+    def GPU1_2t(self):
+        while True:
+            self.beginn = False
+            self.back_gput = False
+            self.after_cart1 = False
+            try:
+                print("SCROLL UP TO SEE THE LIST OF GPUs!")
+                self.ask_cart = int(input("ENTER THE CORRESPONDING NUMBER OF GPU TO ADD TO CART \nTO GO BACK, INPUT 100 \n:"))
+                self.char_a_combine = self.char_a + str(self.ask_cart + 2)
+                self.char_b_combine = self.char_b + str(self.ask_cart +2)
+
+                if self.ask_cart < 0 or self.ask_cart >49 and self.ask_cart <100 or self.ask_cart > 49 and self.ask_cart >100:
+                    print("ᕙ(⇀‸↼‶)ᕗ 凸(⊙▂⊙✖ )")
+                    continue
+                if self.ask_cart != 100:
+                    print("Would you like to add", excii[self.char_a_combine].value, "to cart?")
+                    print("1. YES \n2. NO")
+                    self.ask = int(input(":"))
+
+                    if self.ask == 1:
+                        self.add_to_cart(excii[self.char_a_combine].value)
+                        self.beginn = True
+                        self.after_cart1 = True
+                        break
+                    if self.ask == 2:
+                        continue
+                    if self.ask >2 or self.ask <1:
+                        print("(┳Д┳)")
+                        continue
+
+                if self.ask_cart == 100:
+                    self.back_gput = True
+                    break
+
+            except ValueError:
+                print("凸(⊙▂⊙✖ ) 凸(⊙▂⊙✖ )")
+
+    def GPU2(self):
+        while True:
+            try:
+                self.yes = pd.read_excel(r"C:\Users\Random User Friendly\Desktop\place all here\to be deleted\To be deleted\CC2\Santos_Robby - mock_data.xlsx", usecols='C,D')
+
+                print(self.yes,"\n")
+                print("(づ ◕‿◕ )づ__ (づ ◕‿◕ )づ__ (づ ◕‿◕ )づ__")
+                print("NOTE: ALL GPUs ARE ARRANGED FROM LEAST POWERFUL TO MOST POWERFUL")
+                print("_PRESS 1 TO ADD A GPU TO CART, AND PRESS 2 TO FIND OUT MORE ABOUT THE GPUs!_ \n")
+                self.asking_decide = int(input("1. ADD A GPU TO CART  \n2. SEE THE INFORMATION OF EACH GPUs (YOU WILL BE REDIRECTED TO A YOUTUBE VIDEO WITH THE INFO OF THE GPU)\n3. GO BACK \n:"))
+                return self.asking_decide
+            except ValueError:
+                print("MIGHT I INTRODUCE YOU TO PAPA J?\n")
+
+    def GPU2t(self):
+        while True:
+            self.back_gput = False
+            try:
+
+                if self.asking_decide == 2:
+                    print("SCROLL UP TO SEE THE LIST OF GPUs!")
+                    self.asking_gpuinfo = int(input("TO KNOW MORE ABOUT THE GPUs, PLEASE INPUT THE CORRESPONDING NUMBER TO THE RESPECTIVE GPUs!\n-TO GO BACK TO GPU TYPE, INPUT 100- \n:"))
+                    self.char_c_combine = self.char_c + str(self.asking_gpuinfo + 2)
+                    self.char_k_combine = self.char_k + str(self.asking_gpuinfo +2)
+
+                    if self.asking_gpuinfo < 0 or self.asking_gpuinfo >49 and self.asking_gpuinfo <100 or self.asking_gpuinfo > 49 and self.asking_gpuinfo >100:
+                        print("ᕙ(⇀‸↼‶)ᕗ 凸(⊙▂⊙✖ )")
+                        continue
+
+                    if self.asking_gpuinfo != 100:
+                        webbrowser.open(str(excii[self.char_k_combine].value))
+                        print("You are currently watching information on", excii[self.char_c_combine].value)
+                        input("Press any key to continue \n")
+                    else:
+                        self.back_gput = True
+                        break
+
+            except ValueError:
+                print("----ERROR---")
+                print("凸(⊙▂⊙✖ ) 凸(⊙▂⊙✖ ) \n")
+
+    def GPU2_2t(self):
+        while True:
+            self.beginn = False
+            self.back_gput = False
+            self.after_cart2 = False
+
+            try:
+                print("SCROLL UP TO SEE THE LIST OF GPUs!")
+                self.ask_cart = int(input("ENTER THE CORRESPONDING NUMBER OF GPU TO ADD TO CART \nTO GO BACK, INPUT 100 \n:"))
+                self.char_c_combine = self.char_c + str(self.ask_cart + 2)
+                self.char_d_combine = self.char_d + str(self.ask_cart +2)
+
+                if self.ask_cart < 0 or self.ask_cart >49 and self.ask_cart <100 or self.ask_cart > 49 and self.ask_cart >100:
+                    print("ᕙ(⇀‸↼‶)ᕗ 凸(⊙▂⊙✖ )")
+                    continue
+
+                if self.ask_cart != 100:
+                    print("Would you like to add", excii[self.char_c_combine].value, "to cart?")
+                    print("1. YES \n2. NO")
+                    self.ask = int(input(":"))
+
+
+
+                    if self.ask == 1:
+                        self.add_to_cart(excii[self.char_c_combine].value)
+                        self.beginn = True
+                        self.after_cart2 = True
+                        break
+                    if self.ask == 2:
+                        continue
+
+                    if self.ask >2 or self.ask <1:
+                        print("(┳Д┳)")
+                        continue
+
+                if self.ask_cart == 100:
+                    self.back_gput = True
+                    break
+
+            except ValueError:
+                print("凸(⊙▂⊙✖ ) 凸(⊙▂⊙✖ ) ")
+
+
+    def GPU3(self):
+        while True:
+            try:
+                self.yes = pd.read_excel(r"C:\Users\Random User Friendly\Desktop\place all here\to be deleted\To be deleted\CC2\Santos_Robby - mock_data.xlsx", usecols='E,F')
+
+                print(self.yes,"\n")
+                print("(づ ◕‿◕ )づ__ (づ ◕‿◕ )づ__ (づ ◕‿◕ )づ__")
+                print("NOTE: ALL GPUs ARE ARRANGED FROM LEAST POWERFUL TO MOST POWERFUL")
+                print("_PRESS 1 TO ADD A GPU TO CART, AND PRESS 2 TO FIND OUT MORE ABOUT THE GPUs!_ \n")
+                self.asking_decide = int(input("1. ADD A GPU TO CART  \n2. SEE THE INFORMATION OF EACH GPUs (YOU WILL BE REDIRECTED TO A YOUTUBE VIDEO WITH THE INFO OF THE GPU)\n3. GO BACK \n:"))
+                return self.asking_decide
+            except ValueError:
+                print("MIGHT I INTRODUCE YOU TO PAPA J?\n")
+
+    def GPU3t(self):
+        while True:
+            self.back_gput = False
+            try:
+
+                if self.asking_decide == 2:
+                    print("SCROLL UP TO SEE THE LIST OF GPUs!")
+                    self.asking_gpuinfo = int(input("TO KNOW MORE ABOUT THE GPUs, PLEASE INPUT THE CORRESPONDING NUMBER TO THE RESPECTIVE GPUs!\n-TO GO BACK TO GPU TYPE, INPUT 100- \n:"))
+                    self.char_e_combine = self.char_e + str(self.asking_gpuinfo + 2)
+                    self.char_l_combine = self.char_l + str(self.asking_gpuinfo +2)
+
+                    if self.asking_gpuinfo < 0 or self.asking_gpuinfo >47 and self.asking_gpuinfo <100 or self.asking_gpuinfo > 47 and self.asking_gpuinfo >100:
+                        print("ᕙ(⇀‸↼‶)ᕗ 凸(⊙▂⊙✖ )")
+                        continue
+
+                    if self.asking_gpuinfo != 100:
+                        webbrowser.open(str(excii[self.char_l_combine].value))
+                        print("You are currently watching information on", excii[self.char_e_combine].value)
+                        input("Press any key to continue \n:")
+                    else:
+                        self.back_gput = True
+                        break
+            except ValueError:
+                print("----ERROR---")
+                print("⊹⋛⋋( ՞ਊ ՞)⋌⋚⊹ ⊹⋛⋋( ՞ਊ ՞)⋌⋚⊹ \n")
+
+    def GPU3_2t(self):
+        while True:
+            self.beginn = False
+            self.back_gput = False
+            self.after_cart3 = False
+
+            try:
+                print("SCROLL UP TO SEE THE LIST OF GPUs!")
+                self.ask_cart = int(input("ENTER THE CORRESPONDING NUMBER OF GPU TO ADD TO CART \nTO GO BACK, INPUT 100 \n:"))
+                self.char_e_combine = self.char_e + str(self.ask_cart + 2)
+                self.char_f_combine = self.char_f + str(self.ask_cart +2)
+
+                if self.ask_cart < 0 or self.ask_cart >47 and self.ask_cart <100 or self.ask_cart > 47 and self.ask_cart >100:
+                    print("ᕙ(⇀‸↼‶)ᕗ 凸(⊙▂⊙✖ )")
+                    continue
+
+                if self.ask_cart != 100:
+                    print("Would you like to add", excii[self.char_e_combine].value, "to cart?")
+                    print("1. YES \n2. NO")
+                    self.ask = int(input(":"))
+
+                    if self.ask == 1:
+                        self.add_to_cart(excii[self.char_e_combine].value)
+                        self.after_cart3 = True
+                        self.beginn = True
+                        break
+                    if self.ask == 2:
+                        continue
+
+                    if self.ask >2 or self.ask <1:
+                        print("(┳Д┳)")
+                        continue
+
+                if self.ask_cart == 100:
+                    self.back_gput = True
+                    break
+
+            except ValueError:
+                print("⊹⋛⋋( ՞ਊ ՞)⋌⋚⊹ ⊹⋛⋋( ՞ਊ ՞)⋌⋚⊹ ")
+
+    def go_cart(self):
+        while True:
+            self.beginn = False
+            try:
+                if self.after_cart1:
+                    print("GPU:NON-GAMING", excii[self.char_a_combine].value, ":", excii[self.char_b_combine].value)
+                    self.after_cart2 = False
+                    self.after_cart3 = False
+
+                if self.after_cart2:
+                    print("GPU:LOW-TIER", excii[self.char_c_combine].value, ":", excii[self.char_d_combine].value)
+                    self.after_cart1 = False
+                    self.after_cart3 = False
+                if self.after_cart3:
+                    print("GPU:MID_HIGH-TIER", excii[self.char_e_combine].value, ":", excii[self.char_f_combine].value)
+                    self.after_cart1 = False
+                    self.after_cart2 = False
+                input("Press any number key or enter to continue")
+                self.beginn = True
+                break
+            except ValueError:
+                print("Nothing really happens here. But HI! (┳Д┳) (┳Д┳) (┳Д┳) ")
+
+
+o_all = main()
+while True:
+    if starting:
+        o_all.start() #asking is the questioner
+        starting = False
+
+    if o_all.asking == 4:
+        GPUting = True
+
+    if o_all.asking == 8:
+        go_carting = True
+    if o_all.asking == 0:
+        print("(ु*´З`)ू")
+        exit()
+
+    if go_carting:
+        o_all.go_cart()
+        go_carting = False
+        if o_all.beginn == True:
+            starting = True
+
+    if GPUting:
+        o_all.GPUt() #asking_gpu is the questioner
+        GPUting = False
+
+        if o_all.asking_gpu == 1:
+            GPU1ing = True
+        if o_all.asking_gpu == 2:
+            GPU2ing = True
+        if o_all.asking_gpu == 3:
+            GPU3ing = True
+        if o_all.asking_gpu == 4:
+            starting = True
+
+    if GPU1ing:
+        o_all.GPU1() #asking_decide is the questioner
+        GPU1ing = False
+
+        if o_all.asking_decide == 1:
+            GPU1_2ting = True
+
+        if o_all.asking_decide == 2:
+            GPU1ting = True
+
+        if o_all.asking_decide == 3:
+            GPUting = True
+
+        if GPU1_2ting:
+            o_all.GPU1_2t()
+            GPU1_2ting = False
+
+            if o_all.back_gput:
+                GPUting = True
+
+            if o_all.beginn:
+                starting = True
+
+        if GPU1ting:
+            o_all.GPU1t()
+            GPU1ting = False
+
+    if GPU2ing:
+        o_all.GPU2()
+        GPU2ing = False
+        if o_all.asking_decide == 1:
+            GPU2_2ting = True
+
+        if o_all.asking_decide == 2:
+            GPU2ting = True
+
+        if o_all.asking_decide == 3:
+            GPUting = True
+
+        if GPU2_2ting:
+            o_all.GPU2_2t()
+            GPU2_2ting = False
+
+            if o_all.back_gput:
+                GPUting = True
+
+            if o_all.beginn:
+                starting = True
+
+        if GPU2ting:
+            o_all.GPU2t()
+            GPU2ting = False
+
+    if GPU3ing:
+        o_all.GPU3()
+        GPU3ing = False
+        if o_all.asking_decide == 1:
+            GPU3_2ting = True
+
+        if o_all.asking_decide == 2:
+            GPU3ting = True
+
+        if o_all.asking_decide == 3:
+            GPUting = True
+
+        if GPU3_2ting:
+            o_all.GPU3_2t()
+            GPU3_2ting = False
+
+            if o_all.back_gput:
+                GPUting = True
+
+            if o_all.beginn:
+                starting = True
+
+        if GPU3ting:
+            o_all.GPU3t()
+            GPU3ting = False
